@@ -20,6 +20,8 @@ export class PostComponent implements OnInit {
         this.posts = post as Post[];
         this.isLoading= false;
         this.post = this.posts.find(post=> post.slug == params['slug']);
+
+        this.posts.filter(post=> post.slug != params['slug']);
       });
     });
   }
