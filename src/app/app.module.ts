@@ -6,19 +6,22 @@ import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { HomeComponent } from './home/home.component';
 import { PostComponent } from './post/post.component';
+import { SlugPipePipe } from './pipe/slug-pipe.pipe';
 
 
 @NgModule({
   declarations: [
     AppComponent,
     HomeComponent,
-    PostComponent
+    PostComponent,
+    SlugPipePipe
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     HttpClientModule
   ],
+  exports:[SlugPipePipe],
   providers: [],
   bootstrap: [AppComponent]
 })
