@@ -15,12 +15,12 @@ export class PostComponent implements OnInit {
   constructor(private route: ActivatedRoute, private postsService : PostsServiceService) {}
 
   ngOnInit(): void {
-    this.postsService.get().subscribe(post=>{
-      this.posts = post as Post[];
-      this.isLoading= false;
+    this.route.params.subscribe(params => {
+      this.postsService.get().subscribe(post=>{
+        this.posts = post as Post[];
+        this.isLoading= false;
+        this.post = this.posts.find(post=> post.slug == params['slug']);
+      });
     });
-    if(this.posts!=undefined){
-      this.post = this.posts.find(post=> post.id === +this.route.snapshot.params['id']);
-    }
   }
 }
